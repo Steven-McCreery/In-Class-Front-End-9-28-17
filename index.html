@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+	
+	<div class="jumbotron">
+	  <div class="container text-center">
+	    <h1>New York Times Search</h1>	
+	  </div>
+	</div>
+
+	<div class="container">
+		
+		<div class="row">
+			<div class="column">
+				<div class="panel panel-default">
+
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Search Parameters</h3>
+				  </div>
+				 
+				  <div class="panel-body">
+				    <form>
+
+					  <div class="form-group">
+					    <label for="term">Search Term:</label>
+					    <input type="text" class="form-control" id="term">
+					  </div>
+
+					  <div class="form-group">
+					    <label for="records">Number of Records to Retrieve:</label>
+					    <input type="number" class="form-control" id="records">
+					  </div>
+
+					  <div class="form-group">
+					    <label for="start">Start Year (optional):</label>
+					    <input type="number" class="form-control" id="start">
+					  </div>
+
+					  <div class="form-group">
+					    <label for="end">End Year (optional):</label>
+					    <input type="number" class="form-control" id="end">
+					  </div>
+					
+					  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+					  <button type="clear" class="btn btn-primary btn-lg">Clear</button>
+
+
+					</form>
+
+				  </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="column  col-xs-12" id="results">
+
+				<div class="panel panel-default">
+
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Search Results</h3>
+				  </div>
+				 
+				  <div class="panel-body">
+				    Panel content
+				  </div>
+
+				</div>
+
+				<!-- <div class="row">
+					<div class="column" id="result2">
+						
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="column" id="result3">
+						
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="column" id="result4">
+						
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="column" id="result5">
+						
+					</div>
+				</div> -->
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+</body>
+</html>
