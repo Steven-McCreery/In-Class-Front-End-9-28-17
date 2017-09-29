@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>NYT Search Page</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -39,18 +40,18 @@
 					  </div>
 
 					  <div class="form-group">
-					    <label for="start">Start Year (optional):</label>
-					    <input type="number" class="form-control" id="start">
+					    <label for="start">Start Year (yyyymmdd):</label>
+					    <input type="number" class="form-control" id="start" placeholder="19900101">
 					  </div>
 
 					  <div class="form-group">
-					    <label for="end">End Year (optional):</label>
-					    <input type="number" class="form-control" id="end">
+					    <label for="end">End Year (YYYYMMDD):</label>
+					    <input type="number" class="form-control" id="end" placeholder="19901231">
 					  </div>
 					
-					  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+					  <button type="submit" class="btn btn-primary btn-lg" id="submit">Submit</button>
 
-					  <button type="clear" class="btn btn-primary btn-lg">Clear</button>
+					  <button type="clear" class="btn btn-primary btn-lg" id="clear">Clear</button>
 
 
 					</form>
@@ -73,30 +74,7 @@
 				  </div>
 
 				</div>
-
-				<!-- <div class="row">
-					<div class="column" id="result2">
-						
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="column" id="result3">
-						
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="column" id="result4">
-						
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="column" id="result5">
-						
-					</div>
-				</div> -->
+				
 			</div>
 		</div>
 
@@ -107,8 +85,43 @@
 
 <script type="text/javascript">
 	
-	
-	
+// $("#submit").on("click", function(event){
+// 	event.preventDefault();
+// 	var term = $("#term").val();
+// 	console.log(term)
+// })
+
+$("#clear").on("click", function(event){
+	$("#term").empty();
+	$("#records").empty();
+	$("#start").empty();
+	$("#end").empty();
+	console.log("clear");
+})
+
+$("#submit").on("click", function(event) {
+  event.preventDefault();
+  var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+  url += '?' + $.param({
+      'api-key': "bbad9ec7412f45fab727b22a1c0aac94",
+      'q': $('#search').val(),
+      'begin_date':  $('#start').val(),
+      'end_date':  $('#end').val(),
+  });
+    $.ajax({
+        url: url,
+        method: 'GET',
+    }).done(function(result) {
+        var articles = result.response.docs;
+
+        for (var i = 0; i < articles.length; i ++) {
+          var artTitle = articles[i].headline.main;
+          var date = articles[i].pub_date;
+          var snippet = articles[i].snippet;
+      	}
+    })
+})
+
 </script>
 
 
